@@ -37,10 +37,6 @@ async def process_message(message: Message):
                             "Получи быстрый и точный ответ.⏱️",parse_mode='HTML')
     elif message.text == "❓ Задать вопрос":
         await message.reply("Задайте ваш вопрос:")
-    elif message.text == "⚙️ Админ панель":
-        await message.reply("в разработке")
-    elif message.text == "📚 Каталог":
-        await message.reply("Тута будут примеры какие нить:\n...")
     else:
         try:
             question = Question(text = message.text)

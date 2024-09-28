@@ -14,7 +14,6 @@ def main_kb(user_telegram_id: int):
     # Создаем список списков кнопок. Внутренние списки представляют строки клавиатуры.
     kb_list = [
         [KeyboardButton(text=" О боте"), KeyboardButton(text="❓ Задать вопрос")],
-        [KeyboardButton(text="⚙️ Админ панель"), KeyboardButton(text=" Каталог")]
     ]
 
     # Создаем объект клавиатуры с заданными настройками:
