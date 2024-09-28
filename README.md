@@ -9,4 +9,7 @@
 2. **Установить зависимости**
    ```bash
    pip install -r requirements.txt
-3. **Переименовать .env.examole в .env и указать токен от токен от https://t.me/BotFather**
+3. **Переименовать .env.example в .env и указать токен от токен от https://t.me/BotFather**
+4. **Запустить бота**
+   ```bash
+    python main.py
