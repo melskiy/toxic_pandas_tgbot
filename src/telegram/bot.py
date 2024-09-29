@@ -1,6 +1,5 @@
 import os
 
-from aiogram.filters import Command
 from aiogram.types import BotCommand
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
@@ -27,8 +26,12 @@ async def start_bot():
 
     # Добавление маршрутизатора для обработки команд и сообщений.
     dp.include_router(start_router)
-    await bot.set_my_commands([BotCommand(command = 'admin',description=
-    'Панель оператора'),BotCommand(command='user', description=
-    'Панель пользователя')])
+
+    # Установка команд для бота, которые будут доступны пользователям.
+    await bot.set_my_commands([
+        BotCommand(command='admin', description='Панель оператора'),
+        BotCommand(command='user', description='Панель пользователя')
+    ])
+
     # Запуск процесса обработки событий.
     await dp.start_polling(bot)

@@ -1,4 +1,3 @@
-
 import requests
 
 from src.models.Question import Question
@@ -6,21 +5,25 @@ from src.models.Answer import Answer
 
 async def get_answer_stream(question: Question) -> Answer:
     """
-    Asynchronously fetches an answer to a question using a streaming approach.
+    Асинхронно получает ответ на вопрос с использованием потокового подхода.
 
-    Args:
-        question (Question): The question object to be serialized and sent.
+    Аргументы:
+        question (Question): Объект вопроса, который будет сериализован и отправлен.
 
-    Returns:
-        Answer: The response object containing the retrieved answer.
+    Возвращает:
+        Answer: Объект ответа, содержащий полученный ответ.
 
-    Raises:
-        Exception: If an error occurs during the request or processing.
+    Исключения:
+        Exception: Если возникает ошибка во время запроса или обработки.
     """
 
-    url = "https://ardently-sovereign-coonhound.cloudpub.ru/qa"
+    # URL для отправки запроса на получение ответа
+    url = "https://genuinely-epic-frogfish.cloudpub.ru/predict"
+    # Заголовки запроса, указывающие на тип содержимого
     headers = {"Content-Type": "application/json"}
 
+    # Отправка POST-запроса с сериализованным объектом вопроса
     answer = requests.post(url, headers=headers, json=question.model_dump()).json()
-    return Answer(answer = answer['answer'])
+    # Возвращение объекта ответа, содержащего ответ на вопрос
+    return Answer(answer=answer['answer'])
 
