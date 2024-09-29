@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
 
-from src.handlers.handlers import start_router
+from src.router.start_router import start_router
 
 # Загрузка переменных окружения из файла .env.
 # Это позволяет хранить секретные данные, такие как токен бота, отдельно от кода.

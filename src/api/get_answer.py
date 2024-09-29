@@ -1,14 +1,28 @@
+
 import requests
 
+import re
+from typing import AsyncIterable
 from src.models.Question import Question
 from src.models.Answer import Answer
 
+async def get_answer_stream(question: Question) -> Answer:
+    """
+    Asynchronously fetches an answer to a question using a streaming approach.
 
-async def get_answer(question: Question) -> Answer:
-    #
-    response = {
-        'text': '123',
-        'class_1': 'str',
-        'class_2': ' str',
-    }
-    return Answer(**response)
+    Args:
+        question (Question): The question object to be serialized and sent.
+
+    Returns:
+        Answer: The response object containing the retrieved answer.
+
+    Raises:
+        Exception: If an error occurs during the request or processing.
+    """
+
+    url = "https://ardently-sovereign-coonhound.cloudpub.ru/qa"
+    headers = {"Content-Type": "application/json"}
+
+    line = requests.post(url, headers=headers, json=question.model_dump()).json()
+    return Answer(answer = line['answer'])
+
