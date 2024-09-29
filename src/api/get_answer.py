@@ -23,6 +23,6 @@ async def get_answer_stream(question: Question) -> Answer:
     url = "https://ardently-sovereign-coonhound.cloudpub.ru/qa"
     headers = {"Content-Type": "application/json"}
 
-    line = requests.post(url, headers=headers, json=question.model_dump()).json()
-    return Answer(answer = line['answer'])
+    answer = requests.post(url, headers=headers, json=question.model_dump()).json()
+    return Answer(answer = answer['answer'])
 
