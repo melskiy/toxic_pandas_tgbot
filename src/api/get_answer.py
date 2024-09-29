@@ -1,8 +1,6 @@
 
 import requests
 
-import re
-from typing import AsyncIterable
 from src.models.Question import Question
 from src.models.Answer import Answer
 
